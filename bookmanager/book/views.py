@@ -12,5 +12,9 @@ from django.shortcuts import render
 
 
 def index(request):
-    html = "<h1>hello world</h1>"
-    return HttpResponse(html)
+    # render 渲染模板
+    # request,template_name,context=None
+    # request 请求
+    # template_name 模板名字
+    # context = None
+    return render(request, "book/index.html")
