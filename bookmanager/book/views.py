@@ -17,4 +17,8 @@ def index(request):
     # request 请求
     # template_name 模板名字
     # context = None
-    return render(request, "book/index.html")
+    # 模拟数据查询
+    context = {
+        "name": "百度一下"
+    }
+    return render(request, "book/index.html", context=context)
