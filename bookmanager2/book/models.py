@@ -22,7 +22,7 @@ class PepoleInfo(models.Model):
     # 有序字典
     GENDER_CHOICES = (
         (1, "male"),
-        (2, "female")
+        (0, "female")
     )
     name = models.CharField(max_length=20)
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=1)  # 枚举字典
