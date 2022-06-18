@@ -18,7 +18,7 @@ class BookInfo(models.Model):
         return self.name
 
 
-class PepoleInfo(models.Model):
+class PeopleInfo(models.Model):
     # 有序字典
     GENDER_CHOICES = (
         (1, "male"),
