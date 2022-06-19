@@ -56,4 +56,19 @@ def response(request):
 
 
 def set_cookie(request):
-    return HttpResponse('set_cookie')
+    # 获取查询字符串
+    username = request.GET.get('username')
+    password = request.GET.get('password')
+    # 设置cookie
+    response = HttpResponse('set_cookie')
+    response.set_cookie('username', username)
+    response.set_cookie('password', password)
+    return response
+
+
+def get_cookie(request):
+    # 获取cookies字典数据
+    print(request.COOKIES)
+    username = request.COOKIES.get('username')
+    password = request.COOKIES.get('password')
+    return JsonResponse({'username': username, 'password': password})
