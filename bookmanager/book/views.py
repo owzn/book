@@ -41,3 +41,7 @@ def json(request):
     # JSON形式的字符串 可以转为 Python的字典
     body_dict = json.loads(body_str)
     return JsonResponse(body_dict)
+
+
+def phones(request, cat_id, mobile):
+    return JsonResponse({'cat_id': cat_id, 'mobile': mobile})
