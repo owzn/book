@@ -27,6 +27,8 @@ class PeopleInfo(models.Model):
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=1)
     description = models.CharField(max_length=400, null=True)
     is_delete = models.BooleanField(default=False)
+    # 添加外键
+    book = models.ForeignKey(BookInfo, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'peopleinfo'
