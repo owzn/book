@@ -45,3 +45,15 @@ def json(request):
 
 def phones(request, cat_id, mobile):
     return JsonResponse({'cat_id': cat_id, 'mobile': mobile})
+
+
+def response(request):
+    person = [
+        {'name': 'ow.z', 'gender': 1},
+        {'name': 'mary', 'gender': 0}
+    ]
+    return JsonResponse(data=person, safe=False)
+
+
+def set_cookie(request):
+    return HttpResponse('set_cookie')

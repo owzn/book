@@ -1,5 +1,5 @@
 from django.urls import path
-from book.views import create_book, goods, register, json, phones
+from book.views import create_book, goods, register, json, phones, response, set_cookie
 from django.urls.converters import register_converter
 
 
@@ -25,5 +25,7 @@ urlpatterns = [
     path('create/', create_book),
     path('<int:cat_id>/<phone:mobile>', phones),
     path('register/', register),
-    path('json/', json)
+    path('json/', json),
+    path('response/', response),
+    path('setcookie', set_cookie)
 ]
