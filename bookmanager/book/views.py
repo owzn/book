@@ -72,3 +72,34 @@ def get_cookie(request):
     username = request.COOKIES.get('username')
     password = request.COOKIES.get('password')
     return JsonResponse({'username': username, 'password': password})
+
+
+def delete_cookie(request):
+    response = HttpResponse('delete_cookie')
+    # 删除浏览器保存的cookie
+    response.delete_cookie("username")
+    response.delete_cookie("password")
+    return response
+
+
+def set_session(request):
+    # 获取查询字符串
+    username = request.GET.get('username')
+    # 获取模型数据 UserInfo.objects.filter(name__exact=username)
+    user_id = 1
+    # 设置session信息
+    request.session['user_id'] = user_id
+    request.session['username'] = username
+    # 返回响应
+    return HttpResponse('set_session')
+
+
+def get_session(request):
+    # 获取并解析浏览器携带的sessionid，cookie信息
+    # 方式1，sessionid不存在时，报KeyError错误，程序崩溃
+    # user_id = request.session['user_id']
+    # username = request.session['username']
+    # 方式2，sessionid不存时，返回 None
+    user_id = request.session.get('user_id')
+    username = request.session.get('username')
+    return JsonResponse({'user_id': user_id, 'username': username})
