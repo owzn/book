@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from book.models import BookInfo
 from django.http import JsonResponse
+from django.views import View
 
 
 # Create your views here.
@@ -103,3 +104,15 @@ def get_session(request):
     user_id = request.session.get('user_id')
     username = request.session.get('username')
     return JsonResponse({'user_id': user_id, 'username': username})
+
+
+class RegisterView(View):
+    """类视图，处理注册"""
+
+    def get(self, request):
+        """处理GET请求，返回注册信息"""
+        return HttpResponse('get请求')
+
+    def post(self, request):
+        """处理POST请求，实现注册逻辑"""
+        return HttpResponse('post请求')
