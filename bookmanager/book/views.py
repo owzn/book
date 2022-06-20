@@ -118,7 +118,15 @@ class RegisterView(View):
         return HttpResponse('post请求')
 
 
-class OrderView(View):
+"""
+- 我的订单，个人中心页面，如果是登录用户，可以访问，如果是未登录用户，应跳转到登录页面
+- 定义一个订单，个人中心，类视图，以登录后台站点为例，测试登录与未登录
+"""
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+# LoginRequiredMixin 用来判断用户是否登录，只有登录用户才可以访问页面
+class OrderView(LoginRequiredMixin, View):
     """类视图，处理订单"""
 
     def get(self, request):
