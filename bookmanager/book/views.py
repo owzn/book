@@ -116,3 +116,15 @@ class RegisterView(View):
     def post(self, request):
         """处理POST请求，实现注册逻辑"""
         return HttpResponse('post请求')
+
+
+class OrderView(View):
+    """类视图，处理订单"""
+
+    def get(self, request):
+        """处理GET请求，返回订单信息"""
+        return HttpResponse("get请求订单信息")
+
+    def post(self, request):
+        """处理POST请求，返回订单逻辑"""
+        return HttpResponse("post请求，订单逻辑")
