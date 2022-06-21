@@ -136,3 +136,15 @@ class OrderView(LoginRequiredMixin, View):
     def post(self, request):
         """处理POST请求，返回订单逻辑"""
         return HttpResponse("post请求，订单逻辑")
+
+
+class TestView(View):
+    """类视图，测试中间件"""
+
+    def get(self, request):
+        """处理GET请求"""
+        return HttpResponse("TestView的get请求")
+
+    def post(self, request):
+        """处理POST请求"""
+        return HttpResponse("TestView的post请求")

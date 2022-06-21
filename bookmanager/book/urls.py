@@ -2,7 +2,7 @@ from django.urls import path
 from book.views import create_book, goods, register, json, phones, response, set_cookie, get_cookie, delete_cookie
 from django.urls.converters import register_converter
 from book.views import set_session, get_session
-from book.views import RegisterView, OrderView
+from book.views import RegisterView, OrderView, TestView
 
 
 # 定义转换器
@@ -37,5 +37,6 @@ urlpatterns = [
 
     # 类视图，需带括号调用 View.as_view() takes 1 positional argument but 2 were given
     path('reg/', RegisterView.as_view()),
-    path('order/', OrderView.as_view())
+    path('order/', OrderView.as_view()),
+    path('testview/', TestView.as_view())
 ]
