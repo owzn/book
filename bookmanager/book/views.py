@@ -125,7 +125,7 @@ class RegisterView(View):
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-# LoginRequiredMixin 用来判断用户是否登录，只有登录用户才可以访问页面
+# 多继承 LoginRequiredMixin 用来判断用户是否登录，只有登录用户才可以访问页面
 class OrderView(LoginRequiredMixin, View):
     """类视图，处理订单"""
 
