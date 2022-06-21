@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="app">
-    <button v-on:click="sum">
+    <button v-on:click="sum('ow.z')">
         Add 1
     </button>
     <p>
@@ -28,8 +28,9 @@
             counter: 0
         },
         methods: {
-            sum() {
+            sum(message) {
                 this.counter += 1
+                alert(message)
             }
         }
     })
