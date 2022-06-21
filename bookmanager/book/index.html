@@ -8,29 +8,72 @@
 </head>
 <body>
 <div id="app">
-    <button v-on:click="sum('ow.z')">
-        Add 1
-    </button>
-    <p>
-        The Button above has been clicked {{ counter }} times.
-    </p>
+    {{ message }}
+    <table border="2px">
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="" v-model="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="" v-model="password"></td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td><input type="password" name="" v-model="verifypwd"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+                男<input type="radio" name="sex" value='male' v-model="sex">
+                女<input type="radio" name="sex" value="female" v-model="sex">
+            </td>
+        </tr>
+        <tr>
+            <td>喜好</td>
+            <td>
+                篮球<input type="checkbox" name="like" value="篮球" v-model="like">
+                足球<input type="checkbox" name="like" value="足球" v-model="like">
+                乒乓球<input type="checkbox" name="like" value="乒乓球" v-model="like">
+            </td>
+        </tr>
+        <tr>
+            <td>城市</td>
+            <td>
+                <select v-model="city">
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>广州</option>
+                    <option>深圳</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>个人简介</td>
+            <td>
+                <textarea v-model="desc"></textarea>
+            </td>
+        </tr>
+    </table>
+    <button @click="register">注册</button>
 </div>
 </body>
 <script type="text/javascript">
     var app = new Vue({
         el: "#app",
         data: {
-            object: {
-                title: 'How to do lists in Vue',
-                author: "ow.z",
-                publishedAt: "2022-6-21"
-            },
-            counter: 0
+            message: 'hello world',
+            username: '',   // 用户名
+            password: '',   // 密码
+            verifypwd: '',  // 确认密码
+            sex: '',    // 性别
+            city: '',   // 城市
+            like: [],   // 喜好，多选多个，用列表
+            desc: ''    // 简介
         },
         methods: {
-            sum(message) {
-                this.counter += 1
-                alert(message)
+            register() {
+                alert(this.username + this.password + this.verifypwd + this.sex + this.like + this.city + this.desc)
             }
         }
     })
